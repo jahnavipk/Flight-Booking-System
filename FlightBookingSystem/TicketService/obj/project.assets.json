@@ -7560,8 +7560,8 @@
     },
     "Common/1.0.0": {
       "type": "project",
-      "path": "../../AspDotNetMicroServices/Common/Common.csproj",
-      "msbuildProject": "../../AspDotNetMicroServices/Common/Common.csproj"
+      "path": "../Common/Common.csproj",
+      "msbuildProject": "../Common/Common.csproj"
     },
     "CommonDAL/1.0.0": {
       "type": "project",
@@ -7586,11 +7586,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotNetApplications\\FlightBookingSystem\\TicketService\\TicketService.csproj",
+      "projectUniqueName": "D:\\CaseStudy\\FlightBookingSystem\\TicketService\\TicketService.csproj",
       "projectName": "TicketService",
-      "projectPath": "D:\\DotNetApplications\\FlightBookingSystem\\TicketService\\TicketService.csproj",
+      "projectPath": "D:\\CaseStudy\\FlightBookingSystem\\TicketService\\TicketService.csproj",
       "packagesPath": "C:\\Users\\cogdotnet04\\.nuget\\packages\\",
-      "outputPath": "D:\\DotNetApplications\\FlightBookingSystem\\TicketService\\obj\\",
+      "outputPath": "D:\\CaseStudy\\FlightBookingSystem\\TicketService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -7613,11 +7613,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\DotNetApplications\\AspDotNetMicroServices\\Common\\Common.csproj": {
-              "projectPath": "D:\\DotNetApplications\\AspDotNetMicroServices\\Common\\Common.csproj"
+            "D:\\CaseStudy\\FlightBookingSystem\\CommonDAL\\CommonDAL.csproj": {
+              "projectPath": "D:\\CaseStudy\\FlightBookingSystem\\CommonDAL\\CommonDAL.csproj"
             },
-            "D:\\DotNetApplications\\FlightBookingSystem\\CommonDAL\\CommonDAL.csproj": {
-              "projectPath": "D:\\DotNetApplications\\FlightBookingSystem\\CommonDAL\\CommonDAL.csproj"
+            "D:\\CaseStudy\\FlightBookingSystem\\Common\\Common.csproj": {
+              "projectPath": "D:\\CaseStudy\\FlightBookingSystem\\Common\\Common.csproj"
             }
           }
         }

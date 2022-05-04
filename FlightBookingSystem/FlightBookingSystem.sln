@@ -15,11 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchService", "SearchServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGateway", "APIGateway\APIGateway.csproj", "{A869A489-1CE7-4B25-A71D-5FAE533A9A8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\AspDotNetMicroServices\Common\Common.csproj", "{E32176D5-F977-4EB5-9BB6-84A54330A52C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonDAL", "CommonDAL\CommonDAL.csproj", "{D04A8234-71E2-473C-B2CC-181420279941}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{F39F8BBD-61ED-46FB-8659-D2437E569457}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{F39F8BBD-61ED-46FB-8659-D2437E569457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{CA305792-6C51-4C69-BF10-22E89EF167C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,6 @@ Global
 		{A869A489-1CE7-4B25-A71D-5FAE533A9A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A869A489-1CE7-4B25-A71D-5FAE533A9A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A869A489-1CE7-4B25-A71D-5FAE533A9A8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E32176D5-F977-4EB5-9BB6-84A54330A52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E32176D5-F977-4EB5-9BB6-84A54330A52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E32176D5-F977-4EB5-9BB6-84A54330A52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E32176D5-F977-4EB5-9BB6-84A54330A52C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D04A8234-71E2-473C-B2CC-181420279941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D04A8234-71E2-473C-B2CC-181420279941}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D04A8234-71E2-473C-B2CC-181420279941}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +59,10 @@ Global
 		{F39F8BBD-61ED-46FB-8659-D2437E569457}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F39F8BBD-61ED-46FB-8659-D2437E569457}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F39F8BBD-61ED-46FB-8659-D2437E569457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA305792-6C51-4C69-BF10-22E89EF167C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA305792-6C51-4C69-BF10-22E89EF167C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA305792-6C51-4C69-BF10-22E89EF167C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA305792-6C51-4C69-BF10-22E89EF167C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

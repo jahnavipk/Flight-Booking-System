@@ -5805,11 +5805,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotNetApplications\\FlightBookingSystem\\CommonDAL\\CommonDAL.csproj",
+      "projectUniqueName": "D:\\CaseStudy\\FlightBookingSystem\\CommonDAL\\CommonDAL.csproj",
       "projectName": "CommonDAL",
-      "projectPath": "D:\\DotNetApplications\\FlightBookingSystem\\CommonDAL\\CommonDAL.csproj",
+      "projectPath": "D:\\CaseStudy\\FlightBookingSystem\\CommonDAL\\CommonDAL.csproj",
       "packagesPath": "C:\\Users\\cogdotnet04\\.nuget\\packages\\",
-      "outputPath": "D:\\DotNetApplications\\FlightBookingSystem\\CommonDAL\\obj\\",
+      "outputPath": "D:\\CaseStudy\\FlightBookingSystem\\CommonDAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

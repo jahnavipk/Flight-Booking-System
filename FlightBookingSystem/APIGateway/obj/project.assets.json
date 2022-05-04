@@ -5686,11 +5686,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotNetApplications\\FlightBookingSystem\\APIGateway\\APIGateway.csproj",
+      "projectUniqueName": "D:\\CaseStudy\\FlightBookingSystem\\APIGateway\\APIGateway.csproj",
       "projectName": "APIGateway",
-      "projectPath": "D:\\DotNetApplications\\FlightBookingSystem\\APIGateway\\APIGateway.csproj",
+      "projectPath": "D:\\CaseStudy\\FlightBookingSystem\\APIGateway\\APIGateway.csproj",
       "packagesPath": "C:\\Users\\cogdotnet04\\.nuget\\packages\\",
-      "outputPath": "D:\\DotNetApplications\\FlightBookingSystem\\APIGateway\\obj\\",
+      "outputPath": "D:\\CaseStudy\\FlightBookingSystem\\APIGateway\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
