@@ -30,6 +30,7 @@ namespace AdminService
             services.AddControllers();
             services.AddConsulConfig(Configuration);
             services.AddDbContext<FlightBookingDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FlightBookingConnection")));
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +43,9 @@ namespace AdminService
 
             app.UseConsul(Configuration);
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI();
 
             app.UseRouting();
 

@@ -27,7 +27,6 @@ namespace BookingService.Controllers
             {
                 //Should write code here to check if the user is logged in
 
-
                 //Insert data into Booking Details table
                 BookingDetail bookingDetail = new BookingDetail();
 

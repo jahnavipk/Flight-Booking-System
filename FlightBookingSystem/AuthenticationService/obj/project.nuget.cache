@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GQK3tTG8aQtLsoDZ5QCXvpOegfiFiY7+rkEifdXZfDroPS7enWyior5mz3j7eFFtbAu/aKDOxGwVjhzGky9Csw==",
+  "dgSpecHash": "3QSmxD3NBea6JdxT0p57CuE12SizzKa1s7VmxkGiEaZ7+Ya3uxEY4z/Znz9Iah0iC0yUMdi+rmEeQksr1u1R7A==",
   "success": true,
   "projectFilePath": "D:\\CaseStudy\\FlightBookingSystem\\AuthenticationService\\AuthenticationService.csproj",
   "expectedPackageFiles": [
@@ -13,7 +13,11 @@
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.identitymodel.tokens\\5.5.0\\microsoft.identitymodel.tokens.5.5.0.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\cogdotnet04\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.1\\swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
+    "C:\\Users\\cogdotnet04\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.1\\swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",
+    "C:\\Users\\cogdotnet04\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.3.1\\swashbuckle.aspnetcore.swaggerui.6.3.1.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",
