@@ -1,0 +1,75 @@
+{
+  "Routes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/search",
+      "DownstreamScheme": "http",
+      "ServiceName": "searchService",
+      "UpstreamPathTemplate": "/api/flight/search",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/booking",
+      "DownstreamScheme": "http",
+      "ServiceName": "bookingService",
+      "UpstreamPathTemplate": "/api/flight/booking",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/booking/history/{emailId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "bookingService",
+      "UpstreamPathTemplate": "/api/flight/booking/history/{emailId}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/booking/cancel/{pnr}",
+      "DownstreamScheme": "http",
+      "ServiceName": "bookingService",
+      "UpstreamPathTemplate": "/api/flight/booking/cancel/{pnr}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/ticket/{pnr}",
+      "DownstreamScheme": "http",
+      "ServiceName": "ticketService",
+      "UpstreamPathTemplate": "/api/flight/ticket/{pnr}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/airline/inventory/add",
+      "DownstreamScheme": "http",
+      "ServiceName": "airlineService",
+      "UpstreamPathTemplate": "/api/flight/airline/inventory/add",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/airline/register",
+      "DownstreamScheme": "http",
+      "ServiceName": "airlineService",
+      "UpstreamPathTemplate": "/api/flight/airline/register",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/admin/login",
+      "DownstreamScheme": "http",
+      "ServiceName": "adminService",
+      "UpstreamPathTemplate": "/api/flight/admin/login",
+      "UpstreamHttpMethod": [ "Post" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": "8500",
+      "Type": "Consul"
+    }
+  }
+}
