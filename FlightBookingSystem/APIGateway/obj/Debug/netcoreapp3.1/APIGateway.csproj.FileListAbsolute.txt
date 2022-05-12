@@ -670,10 +670,14 @@ D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Microsoft.Co
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DiagnosticAdapter.dll
+D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Ocelot.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Ocelot.Provider.Consul.dll
+D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
@@ -728,7 +732,7 @@ D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\Razor\Pages\
 D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.RazorTargetAssemblyInfo.cache
 D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.RazorTargetAssemblyInfo.cs
 D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.Views.pdb
+D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.csproj.CopyComplete
 D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.dll
 D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.pdb
 D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.genruntimeconfig.cache
-D:\CaseStudy\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.csproj.CopyComplete

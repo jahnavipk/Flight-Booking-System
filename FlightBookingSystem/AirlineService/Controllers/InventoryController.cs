@@ -1,4 +1,5 @@
-﻿using AirlineService.Models;
+﻿using AirlineService.Interfaces;
+using AirlineService.Models;
 using Common;
 using CommonDAL.Models;
 using Microsoft.AspNetCore.Http;
@@ -14,25 +15,28 @@ namespace AirlineService.Controllers
     [ApiController]
     public class InventoryController : ControllerBase
     {
-        FlightBookingDBContext _context;
+        IAirlineRepository _context;
 
-        public InventoryController(FlightBookingDBContext context)
+        public InventoryController(IAirlineRepository context)
         {
             _context = context;
         }
 
         [HttpPost("add")]
-        public IActionResult AddFlightDetails(FlightMaster inventoryDetails)
+        public IActionResult AddFlightDetails(TblFlightMaster inventoryDetails)
         {
             try
             {
-                inventoryDetails.IsActive = "Y";
-                inventoryDetails.CreatedBy = inventoryDetails.ModifiedBy = "Admin";
+                int isFlightAddedSuccessfully = _context.AddFlightDetails(inventoryDetails);
 
-                _context.FlightMasters.Add(inventoryDetails);
-                _context.SaveChanges();
-
-                return Ok("Flight details added successfully");
+                if (isFlightAddedSuccessfully > 0)
+                {
+                    return Ok("Flight details added successfully");
+                }
+                else
+                {
+                    return BadRequest("Flight details could not be added");
+                }
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using AirlineService.Models;
+﻿using AirlineService.Interfaces;
+using AirlineService.Models;
 using CommonDAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,41 +10,38 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Author: Jahnavi Kamatgi
+/// Purpose: Register a new user
+/// </summary>
 namespace AirlineService.Controllers
 {
     [Route("api/airline/register")]
     [ApiController]
     public class RegisterController : ControllerBase
     {
-        FlightBookingDBContext _context;
+        IAirlineRepository _context;
 
-        public RegisterController(FlightBookingDBContext context)
+        public RegisterController(IAirlineRepository context)
         {
             _context = context;
         }
 
         [HttpPost]
-        public IActionResult RegisterUser(UserMaster userDetails)
+        public IActionResult RegisterUser(TblUserMaster userDetails)
         {
             try
             {
-                using (SHA512 sha512hash = SHA512.Create())
+                int IsRegisteredSuccessfully = _context.RegisterUser(userDetails);
+
+                if (IsRegisteredSuccessfully > 0)
                 {
-                    byte[] sourceBytes = Encoding.UTF8.GetBytes(userDetails.Password);
-                    byte[] hashBytes = sha512hash.ComputeHash(sourceBytes);
-                    string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
-
-                    userDetails.Password = hashedPassword;
+                    return Created("", "User registered successfully!");
                 }
-               
-                userDetails.IsActive = "Y";
-                userDetails.CreatedBy = userDetails.UserName.ToString();
-                userDetails.ModifiedBy = userDetails.UserName.ToString();
-
-                _context.UserMasters.Add(userDetails);
-                _context.SaveChanges();
-
-                return Created("", "User registered successfully!");
+                else
+                {
+                    return BadRequest("User could not be registered");
+                }
             }
             catch (Exception ex)
             {

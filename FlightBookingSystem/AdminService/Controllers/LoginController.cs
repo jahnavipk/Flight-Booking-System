@@ -1,4 +1,5 @@
-﻿using CommonDAL.Models;
+﻿using AdminService.Interfaces;
+using CommonDAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,43 +9,38 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Author: Jahnavi Kamatgi
+/// Purpose: Login into the application
+/// </summary>
 namespace AdminService.Controllers
 {
     [Route("api/admin")]
     [ApiController]
     public class LoginController : ControllerBase
     {
-        FlightBookingDBContext _context;
+        IPortalRepository _context;
 
-        public LoginController(FlightBookingDBContext context)
+        public LoginController(IPortalRepository context)
         {
             _context = context;
         }
 
         [HttpPost("login")]
-        public IActionResult Login(UserMaster userLogin)
+        public IActionResult Login(TblUserMaster userLogin)
         {
             try
             {
-                using (SHA512 sha512hash = SHA512.Create())
-                {
-                    byte[] sourceBytes = Encoding.UTF8.GetBytes(userLogin.Password);
-                    byte[] hashBytes = sha512hash.ComputeHash(sourceBytes);
-                    string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+                bool IsLoginSuccessful = _context.Login(userLogin);
 
-                    userLogin.Password = hashedPassword;
-                }
-
-                IEnumerable<UserMaster> searchResults = _context.UserMasters.ToList()
-                    .Where(m => m.EmailId == userLogin.EmailId && m.Password == userLogin.Password);
-
-                //Check if the entered credentials are found in the DB
-                if (searchResults.ToList().Count != 0)
+                if (IsLoginSuccessful)
                 {
                     return Ok();
                 }
-
-                return Unauthorized("Incorrect Email Id/ Password");
+                else
+                {
+                    return Unauthorized("Incorrect Email Id/ Password");
+                }
             }
             catch (Exception ex)
             {

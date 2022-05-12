@@ -6,7 +6,7 @@
       "DownstreamScheme": "http",
       "ServiceName": "searchService",
       "UpstreamPathTemplate": "/api/flight/search",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamHttpMethod": [ "Get" ]
     },
     {
       "UseServiceDiscovery": true,
@@ -26,20 +26,20 @@
     },
     {
       "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/booking/ticket/{pnr}",
+      "DownstreamScheme": "http",
+      "ServiceName": "bookingService",
+      "UpstreamPathTemplate": "/api/flight/booking/ticket/{pnr}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/booking/cancel/{pnr}",
       "DownstreamScheme": "http",
       "ServiceName": "bookingService",
       "UpstreamPathTemplate": "/api/flight/booking/cancel/{pnr}",
       "UpstreamHttpMethod": [ "Delete" ]
-    },
-    {
-      "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "/api/ticket/{pnr}",
-      "DownstreamScheme": "http",
-      "ServiceName": "ticketService",
-      "UpstreamPathTemplate": "/api/flight/ticket/{pnr}",
-      "UpstreamHttpMethod": [ "Get" ]
-    },
+    },    
     {
       "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/airline/inventory/add",

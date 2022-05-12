@@ -1,5 +1,9 @@
+using BookingService.Interfaces;
+using BookingService.Models;
 using Common;
 using CommonDAL.Models;
+using MassTransit;
+using MassTransit.KafkaIntegration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +35,19 @@ namespace BookingService
             services.AddConsulConfig(Configuration);
             services.AddDbContext<FlightBookingDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FlightBookingConnection")));
             services.AddSwaggerGen();
+            services.AddTransient<IBookFlightsRepository, BookFlightsRepository>();
+            services.AddMassTransit(x => {
+                x.UsingRabbitMq((context, cfg) => cfg.ConfigureEndpoints(context));
+                x.AddRider(rider =>
+                {
+                    rider.AddProducer<InventoryModificationDetails>(nameof(InventoryModificationDetails));
+                    rider.UsingKafka((context, k) =>
+                    {
+                        k.Host("localhost:9092");
+                    });
+                });
+            });
+            services.AddMassTransitHostedService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

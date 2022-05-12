@@ -1,33 +1,38 @@
 ﻿using CommonDAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SearchService.Interfaces;
 using SearchService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Author: Jahnavi Kamatgi
+/// Purpose: Search for flights
+/// </summary>
 namespace SearchService.Controllers
 {
     [Route("api/search")]
     [ApiController]
     public class SearchController : ControllerBase
     {
-        FlightBookingDBContext _context;
 
-        public SearchController(FlightBookingDBContext context)
+        ISearchFlightsRepository _context;
+
+        public SearchController(ISearchFlightsRepository context)
         {
             _context = context;
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult SearchFlights(SearchDetails searchDetails)
         {
             try
             {
-                IEnumerable<FlightMaster> searchResults = _context.FlightMasters.ToList()
-                                                        .Where(m => m.FromLocation == searchDetails.FromLocation
-                                                                 && m.ToLocation == searchDetails.ToLocation);
+                var searchResults = _context.SearchFlights(searchDetails);
+
                 if (searchResults.ToList().Count != 0)
                 {
                     return Ok(searchResults.ToList());

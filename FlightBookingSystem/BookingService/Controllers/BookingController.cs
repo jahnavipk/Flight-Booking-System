@@ -1,5 +1,7 @@
-﻿using BookingService.Models;
+﻿using BookingService.Interfaces;
+using BookingService.Models;
 using CommonDAL.Models;
+using MassTransit.KafkaIntegration;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,53 +9,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Author: Jahnavi Kamatgi
+/// Purpose: Manages Flight bookings - Book a flight, get booking history for a user, delete ticket for a user
+/// </summary>
 namespace BookingService.Controllers
 {
     [Route("api/booking")]
     [ApiController]
     public class BookingController : ControllerBase
     {
-        FlightBookingDBContext _context;
+        IBookFlightsRepository _context;
+        FlightBookingDBContext _dbContext;
+        private ITopicProducer<InventoryModificationDetails> _topicProducer;
 
-        public BookingController(FlightBookingDBContext context)
+        public BookingController(IBookFlightsRepository context, FlightBookingDBContext dbContext, ITopicProducer<InventoryModificationDetails> topicProducer)
         {
             _context = context;
+            _dbContext = dbContext;
+            _topicProducer = topicProducer;
         }
 
         [HttpPost]
-        public IActionResult BookFlight(BookingInputDetails bookingInputDetails)
+        public async Task<IActionResult> BookFlight(BookingInputDetails bookingInputDetails)
         {
             try
             {
                 //Should write code here to check if the user is logged in
 
-                //Insert data into Booking Details table
-                BookingDetail bookingDetail = new BookingDetail();
+                string PNR = _context.BookFlights(bookingInputDetails);
 
-                bookingDetail.UserId = bookingInputDetails.UserId;
-                bookingDetail.FlightNo = bookingInputDetails.FlightNo;
-                bookingDetail.NoOfPassengers = bookingInputDetails.NoOfPassengers;
-                bookingDetail.DepartureDateTime = bookingInputDetails.DepartureDateTime;
-                bookingDetail.IsOneWay = bookingInputDetails.IsOneWay;
-                bookingDetail.ReturnDateTime = bookingInputDetails.ReturnDateTime;
-                bookingDetail.StatusCode = 1;
-                bookingDetail.CreatedBy = bookingDetail.ModifiedBy = bookingInputDetails.UserId.ToString();
-
-                _context.BookingDetails.Add(bookingDetail);
-                _context.SaveChanges();
-
-                //Insert data into UserBookingDetails table (Includes passenger wise details)
-                foreach (var item in bookingInputDetails.UserBookingDetails)
+                await _topicProducer.Produce(new InventoryModificationDetails
                 {
-                    item.Pnr = bookingDetail.Pnr;
-                    item.StatusCode = 1;
-                    item.CreatedBy = item.ModifiedBy = bookingInputDetails.UserId.ToString();
+                    FlightNo = bookingInputDetails.FlightNo,
+                    DepartureDateTime = bookingInputDetails.DepartureDateTime,
+                    NoOfSeats = bookingInputDetails.NoOfPassengers,
+                    Action = "Book"
+                });
 
-                    _context.UserBookingDetails.Add(item);
-                    _context.SaveChanges();
-                }
-
-                return Ok("Flight Booked Successfully with PNR No: " + bookingDetail.Pnr);
+                return Ok("Flight Booked Successfully with PNR No: " + PNR);
             }
             catch (Exception ex)
             {
@@ -61,14 +55,15 @@ namespace BookingService.Controllers
             }
         }
 
+        //Gets all bookings for a User
         [HttpGet("history/{emailId}")]
         public IActionResult GetBookingHistory(string emailId)
         {
             try
             {
-                IEnumerable<UserMaster> userMaster = _context.UserMasters.ToList().Where(m => m.EmailId == emailId);
-                IEnumerable<BookingDetail> bookingDetails = _context.BookingDetails.ToList().Where(m => m.UserId == userMaster.FirstOrDefault().UserId);
-                IEnumerable<UserBookingDetail> userBookingDetails = _context.UserBookingDetails.ToList().Where(m => m.Pnr == bookingDetails.FirstOrDefault().Pnr);
+                IEnumerable<TblUserMaster> userMaster = _dbContext.TblUserMasters.ToList().Where(m => m.EmailId == emailId);
+                IEnumerable<TblBookingDetail> bookingDetails = _dbContext.TblBookingDetails.ToList().Where(m => m.UserId == userMaster.FirstOrDefault().UserId);
+                IEnumerable<TblPassengerDetail> userBookingDetails = _dbContext.TblPassengerDetails.ToList().Where(m => m.Pnr == bookingDetails.FirstOrDefault().Pnr);
 
                 var result = (from p in userBookingDetails
                               join t in bookingDetails on p.Pnr equals t.Pnr
@@ -100,28 +95,80 @@ namespace BookingService.Controllers
             }
         }
 
+        //Gets booking details for the entered PNR
+        [HttpGet("ticket/{pnr}")]
+        public IActionResult GetBookingDetails(int pnr)
+        {
+            try
+            {
+                TblBookingDetail details = _dbContext.TblBookingDetails.ToList().Find(m => m.Pnr == pnr);
+
+                if (details != null)
+                {
+                    IEnumerable<TblBookingDetail> bookingDetails = _dbContext.TblBookingDetails.ToList().Where(m => m.Pnr == pnr);
+                    IEnumerable<TblPassengerDetail> userBookingDetails = _dbContext.TblPassengerDetails.ToList().Where(m => m.Pnr == pnr);
+                    IEnumerable<TblUserMaster> userMaster = _dbContext.TblUserMasters.ToList().Where(m => m.UserId == bookingDetails.FirstOrDefault().UserId);
+
+                    var result = (from p in userBookingDetails
+                                  join t in bookingDetails on p.Pnr equals t.Pnr
+                                  join c in userMaster on t.UserId equals c.UserId
+                                  where t.Pnr == pnr && t.StatusCode == 1
+                                  select new
+                                  {
+                                      t.Pnr,
+                                      c.UserName,
+                                      t.FlightNo,
+                                      p.PassengerName,
+                                      p.PassengerAge,
+                                      p.PassengerGender,
+                                      p.IsMealOpted,
+                                      p.MealType,
+                                      t.DepartureDateTime,
+                                      t.IsOneWay,
+                                      t.ReturnDateTime,
+                                      t.NoOfPassengers,
+                                      p.Price,
+                                      p.StatusCode
+                                  }).ToList();
+                    return Ok(result);
+                }
+
+                return NotFound("No records found with the entered PNR number. Please enter the correct PNR number.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    Response = "Error",
+                    ResponseMessage = ex.Message
+                });
+            }
+        }
+
         [HttpDelete("cancel/{pnr}")]
         public IActionResult CancelBooking(int pnr)
         {
             try
             {
-                var resultBookingDetails = _context.BookingDetails.Where(m => m.Pnr == pnr);
-                _context.BookingDetails.Remove((BookingDetail)resultBookingDetails);
+                bool IsBookingCancelled = _context.CancelBooking(pnr);                
 
-                var resultUserBookingDetails = _context.UserBookingDetails.Where(m => m.Pnr == pnr);
-                _context.UserBookingDetails.Remove((UserBookingDetail)resultUserBookingDetails);
+                //await _topicProducer.Produce(new InventoryModificationDetails
+                //{
+                //    FlightNo = _FlightNo,
+                //    DepartureDateTime = _DepartureDateTime,
+                //    NoOfSeats = _NoOfSeats,
+                //    Action = "Cancel"
+                //});
 
-                if (resultBookingDetails.ToList().Count == 0 || resultUserBookingDetails.ToList().Count == 0)
+                if (IsBookingCancelled)
+                {
+                    var message = "Booking for PNR No: " + pnr + " is cancelled successfully";
+                    return Accepted(message);
+                }
+                else
                 {
                     return NotFound("No records found with PNR: " + pnr);
                 }
-
-                _context.SaveChanges();
-
-                var message = "Booking for PNR No: " + pnr + " is cancelled successfully";
-
-                return Accepted(message);
-
             }
             catch (Exception ex)
             {

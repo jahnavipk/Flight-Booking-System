@@ -1,3 +1,5 @@
+using AdminService.Interfaces;
+using AdminService.Models;
 using Common;
 using CommonDAL.Models;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +33,7 @@ namespace AdminService
             services.AddConsulConfig(Configuration);
             services.AddDbContext<FlightBookingDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FlightBookingConnection")));
             services.AddSwaggerGen();
+            services.AddTransient<IPortalRepository, PortalRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

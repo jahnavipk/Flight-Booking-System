@@ -17,10 +17,11 @@ namespace CommonDAL.Models
         {
         }
 
-        public virtual DbSet<BookingDetail> BookingDetails { get; set; }
-        public virtual DbSet<FlightMaster> FlightMasters { get; set; }
-        public virtual DbSet<UserBookingDetail> UserBookingDetails { get; set; }
-        public virtual DbSet<UserMaster> UserMasters { get; set; }
+        public virtual DbSet<TblBookingDetail> TblBookingDetails { get; set; }
+        public virtual DbSet<TblFlightMaster> TblFlightMasters { get; set; }
+        public virtual DbSet<TblPassengerDetail> TblPassengerDetails { get; set; }
+        public virtual DbSet<TblStatusMaster> TblStatusMasters { get; set; }
+        public virtual DbSet<TblUserMaster> TblUserMasters { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,9 +36,12 @@ namespace CommonDAL.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<BookingDetail>(entity =>
+            modelBuilder.Entity<TblBookingDetail>(entity =>
             {
-                entity.HasKey(e => e.Pnr);
+                entity.HasKey(e => e.Pnr)
+                    .HasName("PK_BookingDetails");
+
+                entity.ToTable("tblBookingDetails");
 
                 entity.Property(e => e.Pnr).HasColumnName("PNR");
 
@@ -75,12 +79,12 @@ namespace CommonDAL.Models
                 entity.Property(e => e.ReturnDateTime).HasColumnType("datetime");
             });
 
-            modelBuilder.Entity<FlightMaster>(entity =>
+            modelBuilder.Entity<TblFlightMaster>(entity =>
             {
                 entity.HasKey(e => e.FlightNo)
-                    .HasName("PK__FlightMa__8A9E3D457DC5F555");
+                    .HasName("PK__tblFligh__8A9E3D459B43DB27");
 
-                entity.ToTable("FlightMaster");
+                entity.ToTable("tblFlightMaster");
 
                 entity.Property(e => e.FlightNo)
                     .HasMaxLength(20)
@@ -144,9 +148,12 @@ namespace CommonDAL.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<UserBookingDetail>(entity =>
+            modelBuilder.Entity<TblPassengerDetail>(entity =>
             {
-                entity.HasKey(e => e.PassengerId);
+                entity.HasKey(e => e.PassengerId)
+                    .HasName("PK_UserBookingDetails");
+
+                entity.ToTable("tblPassengerDetails");
 
                 entity.Property(e => e.CreatedBy)
                     .IsRequired()
@@ -187,17 +194,59 @@ namespace CommonDAL.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
+                entity.Property(e => e.PassengerSeatNo)
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Pnr).HasColumnName("PNR");
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
             });
 
-            modelBuilder.Entity<UserMaster>(entity =>
+            modelBuilder.Entity<TblStatusMaster>(entity =>
+            {
+                entity.HasKey(e => e.StatusCode);
+
+                entity.ToTable("tblStatusMaster");
+
+                entity.Property(e => e.StatusCode).ValueGeneratedNever();
+
+                entity.Property(e => e.CreatedBy)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.IsActive)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.ModifiedBy)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ModifiedDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.StatusDescription)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<TblUserMaster>(entity =>
             {
                 entity.HasKey(e => e.UserId)
                     .HasName("PK_UserDetails");
 
-                entity.ToTable("UserMaster");
+                entity.ToTable("tblUserMaster");
 
                 entity.Property(e => e.ContactNo)
                     .IsRequired()

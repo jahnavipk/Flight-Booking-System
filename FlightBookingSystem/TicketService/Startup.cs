@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TicketService.Interfaces;
+using TicketService.Models;
 
 namespace TicketService
 {
@@ -31,6 +33,7 @@ namespace TicketService
             services.AddConsulConfig(Configuration);
             services.AddDbContext<FlightBookingDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FlightBookingConnection")));
             services.AddSwaggerGen();
+            services.AddTransient<ITicketRepository, TicketRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

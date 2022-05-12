@@ -76,14 +76,14 @@ D:\DotNetApplications\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\
 D:\DotNetApplications\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\CommonDAL.pdb
 D:\DotNetApplications\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\TicketService.MvcApplicationPartsAssemblyInfo.cs
 D:\DotNetApplications\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\TicketService.csproj.CopyComplete
-D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\appsettings.Development.json
-D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\appsettings.json
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\CommonDAL.Views.dll
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\CommonDAL.Views.pdb
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\CommonDAL.deps.json
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\CommonDAL.runtimeconfig.json
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\CommonDAL.runtimeconfig.dev.json
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\CommonDAL.exe
+D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\appsettings.json
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\TicketService.StaticWebAssets.xml
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\TicketService.exe
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\TicketService.deps.json
@@ -114,7 +114,11 @@ D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Microsoft
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 D:\CaseStudy\FlightBookingSystem\TicketService\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -150,7 +154,7 @@ D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\staticweb
 D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\staticwebassets\TicketService.StaticWebAssets.xml
 D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\scopedcss\bundle\TicketService.styles.css
 D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\TicketService.RazorTargetAssemblyInfo.cache
-D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\TicketService.csproj.CopyComplete
 D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\TicketService.dll
 D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\TicketService.pdb
 D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\TicketService.genruntimeconfig.cache
+D:\CaseStudy\FlightBookingSystem\TicketService\obj\Debug\netcoreapp3.1\TicketService.csproj.CopyComplete

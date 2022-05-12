@@ -14,6 +14,6 @@ namespace BookingService.Models
         public DateTime DepartureDateTime { get; set; }
         public string IsOneWay { get; set; }
         public DateTime? ReturnDateTime { get; set; }        
-        public UserBookingDetail[] UserBookingDetails { get; set; }
+        public TblPassengerDetail[] TblPassengerDetails { get; set; }
     }
 }

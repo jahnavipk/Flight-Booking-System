@@ -25,13 +25,13 @@ namespace TicketService.Controllers
         {
             try
             {
-                BookingDetail details = _context.BookingDetails.ToList().Find(m => m.Pnr == pnr);
+                TblBookingDetail details = _context.TblBookingDetails.ToList().Find(m => m.Pnr == pnr);
 
                 if (details != null)
                 {
-                    IEnumerable<BookingDetail> bookingDetails = _context.BookingDetails.ToList().Where(m => m.Pnr == pnr);
-                    IEnumerable<UserBookingDetail> userBookingDetails = _context.UserBookingDetails.ToList().Where(m => m.Pnr == pnr);
-                    IEnumerable<UserMaster> userMaster = _context.UserMasters.ToList().Where(m => m.UserId == bookingDetails.FirstOrDefault().UserId);
+                    IEnumerable<TblBookingDetail> bookingDetails = _context.TblBookingDetails.ToList().Where(m => m.Pnr == pnr);
+                    IEnumerable<TblPassengerDetail> userBookingDetails = _context.TblPassengerDetails.ToList().Where(m => m.Pnr == pnr);
+                    IEnumerable<TblUserMaster> userMaster = _context.TblUserMasters.ToList().Where(m => m.UserId == bookingDetails.FirstOrDefault().UserId);
 
                     var result = (from p in userBookingDetails
                                   join t in bookingDetails on p.Pnr equals t.Pnr
