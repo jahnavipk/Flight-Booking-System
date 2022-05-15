@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QwxdNsDfZCb3I/7nbAs38ITIzo78/I9EvNHGB2GgSf4ujlxktpnLqQibqcpdC8Z9me33QrE06L+XavcchKafkA==",
+  "dgSpecHash": "4M78wWunYt4ibznHgezHWJmauK2OW+G3aydkUhqzOfzpN24DqsKPsKv7P9bVrIPKU76tzyxFbpe+TrjWMdMeVA==",
   "success": true,
   "projectFilePath": "D:\\CaseStudy\\FlightBookingSystem\\AirlineService\\AirlineService.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\masstransit.extensions.dependencyinjection\\7.0.3\\masstransit.extensions.dependencyinjection.7.0.3.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\masstransit.kafka\\7.0.3\\masstransit.kafka.7.0.3.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\masstransit.rabbitmq\\7.0.3\\masstransit.rabbitmq.7.0.3.nupkg.sha512",
+    "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.24\\microsoft.aspnetcore.authentication.jwtbearer.3.1.24.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

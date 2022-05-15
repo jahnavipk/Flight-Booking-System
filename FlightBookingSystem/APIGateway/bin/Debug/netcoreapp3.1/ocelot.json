@@ -6,7 +6,7 @@
       "DownstreamScheme": "http",
       "ServiceName": "searchService",
       "UpstreamPathTemplate": "/api/flight/search",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Post" ]
     },
     {
       "UseServiceDiscovery": true,
@@ -39,7 +39,7 @@
       "ServiceName": "bookingService",
       "UpstreamPathTemplate": "/api/flight/booking/cancel/{pnr}",
       "UpstreamHttpMethod": [ "Delete" ]
-    },    
+    },
     {
       "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/airline/inventory/add",

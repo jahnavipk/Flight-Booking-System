@@ -93,6 +93,7 @@ D:\CaseStudy\FlightBookingSystem\SearchService\bin\Debug\netcoreapp3.1\SearchSer
 D:\CaseStudy\FlightBookingSystem\SearchService\bin\Debug\netcoreapp3.1\SearchService.pdb
 D:\CaseStudy\FlightBookingSystem\SearchService\bin\Debug\netcoreapp3.1\Consul.dll
 D:\CaseStudy\FlightBookingSystem\SearchService\bin\Debug\netcoreapp3.1\Humanizer.dll
+D:\CaseStudy\FlightBookingSystem\SearchService\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\CaseStudy\FlightBookingSystem\SearchService\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\CaseStudy\FlightBookingSystem\SearchService\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 D:\CaseStudy\FlightBookingSystem\SearchService\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -157,4 +158,3 @@ D:\CaseStudy\FlightBookingSystem\SearchService\obj\Debug\netcoreapp3.1\SearchSer
 D:\CaseStudy\FlightBookingSystem\SearchService\obj\Debug\netcoreapp3.1\SearchService.dll
 D:\CaseStudy\FlightBookingSystem\SearchService\obj\Debug\netcoreapp3.1\SearchService.pdb
 D:\CaseStudy\FlightBookingSystem\SearchService\obj\Debug\netcoreapp3.1\SearchService.genruntimeconfig.cache
-D:\CaseStudy\FlightBookingSystem\SearchService\obj\Debug\netcoreapp3.1\SearchService.csproj.CopyComplete

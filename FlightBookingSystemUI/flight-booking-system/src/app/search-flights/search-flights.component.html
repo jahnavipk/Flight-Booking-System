@@ -1,0 +1,76 @@
+<div class="row py-5">
+    <h4>Where do you want to travel today?</h4>
+</div>
+<div class="container">
+    <div class="py-3">
+        <div class="row">
+            <div class="form col-md-12">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="input-control-label">From</label>
+                        <input type="text" class="form-control" [(ngModel)]="searchInputData.fromLocation"
+                            aria-describedby="emailHelp" placeholder="From">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="input-control-label">To</label>
+                        <input type="text" class="form-control" [(ngModel)]="searchInputData.toLocation"
+                            id="InputPassword" placeholder="To">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                      <label class="input-control-label">Date of travel</label>
+                      <input type="date" class="form-control" [(ngModel)]="searchInputData.departureDate" placeholder="Date of travel">
+                  </div>
+                    <div class="form-group col-md-6">
+                        <label class="input-control-label">No of Passengers</label>
+                        <input type="text" class="form-control" [(ngModel)]="searchInputData.noOfPassengers"
+                            placeholder="No of Passengers">
+                    </div>                                      
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-12">
+            <button type="submit" (click)="searchFlights()" class="btn btn-success">Search Flights</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-5">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Flight No</th>
+                            <th scope="col">Flight Name</th>
+                            <th scope="col">From Location</th>
+                            <th scope="col">To Location</th>
+                            <th scope="col">Departure Date</th>
+                            <th scope="col">Arrival Date</th>
+                            <th scope="col">No Of Seats available</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let obj of flightDetails">
+                            <td>{{obj.flightNo}}</td>
+                            <td>{{obj.flightName}}</td>
+                            <td>{{obj.fromLocation}}</td>
+                            <td>{{obj.toLocation}}</td>
+                            <td>{{obj.departureDateTime}}</td>
+                            <td>{{obj.arrivalDateTime}}</td>
+                            <td>{{obj.noOfSeats}}</td>
+                            <td>{{obj.price}}</td>                           
+                            <td><button [disabled]="userLoggedIn(false)" type="submit" (click)="bookFlight(obj)" class="btn btn-success">Book
+                                    Flight</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container pt-5 pb-4">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <div class="row" style="height: 50px;">
+                    <div class="col-md-3">
+                        <label>Flight No: {{userFlightData.flightNo}}</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Flight Name: {{userFlightData.flightName}}</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>From: {{userFlightData.fromLocation}}</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>To: {{userFlightData.toLocation}}</label>
+                    </div>
+                </div>
+                <div class="row" style="height: 50px;">
+
+                    <div class="col-md-3">
+                        <label>Departure Date: {{userFlightData.departureDateTime}}</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Arrival Date: {{userFlightData.arrivalDateTime}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-1">
+    <div class="row ">
+        <div class="form col-md-12">
+            <div class="form-group">
+                <div class="row">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr class="thead-dark">
+                                <th scope="col">Passenger Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dynamic of passengerArray; let i = index;">
+                                <td>
+                                    <input [(ngModel)]="passengerArray[i].passengerName" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <input [(ngModel)]="passengerArray[i].passengerAge" class="form-control"
+                                        type="text" />
+                                </td>
+                                <td>
+                                    <!-- <input [(ngModel)]="passengerArray[i].passengerGender" class="form-control"
+                                        type="text" /> -->
+                                    <select class="form-select form-control"
+                                        [(ngModel)]="passengerArray[i].passengerGender"
+                                        aria-label="Default select example" placeholder="Select Gender">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <span style="float: left;"><i (click)="addRow(i)"
+                                            class="fa fa-plus fa-lg"></i></span>
+                                    <span style="float: right;"><i (click)="deleteRow(i)"
+                                            class="fa fa-trash fa-lg"></i></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="row col-md-12">
+                        <button type="submit" (click)="bookFlight()" class="btn btn-success">Book Flight</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

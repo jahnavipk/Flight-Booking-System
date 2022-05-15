@@ -26,7 +26,7 @@ namespace SearchService.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult SearchFlights(SearchDetails searchDetails)
         {
             try

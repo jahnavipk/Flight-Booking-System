@@ -46,10 +46,6 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
-              "target": "Package",
-              "version": "[3.1.19, )"
-            },
             "Ocelot": {
               "target": "Package",
               "version": "[16.0.1, )"
@@ -57,18 +53,6 @@
             "Ocelot.Provider.Consul": {
               "target": "Package",
               "version": "[16.0.1, )"
-            },
-            "Swashbuckle.AspNetCore.Swagger": {
-              "target": "Package",
-              "version": "[6.3.1, )"
-            },
-            "Swashbuckle.AspNetCore.SwaggerGen": {
-              "target": "Package",
-              "version": "[6.3.1, )"
-            },
-            "Swashbuckle.AspNetCore.SwaggerUI": {
-              "target": "Package",
-              "version": "[6.3.1, )"
             }
           },
           "imports": [

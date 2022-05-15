@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+.dash-shadebg {
+    background: linear-gradient( to left, #71a8e1,#bc77c9)
+   
+}
+
+
+
+.input-control-label {
+    font-size: x-large;
+}
+
+.table .thead-dark th {
+    color: #fff;
+    background-color: #b70b3b;
+    border-color: #89344c;
+}
+
+.table-bordered thead td,
+.table-bordered thead th {
+    border-bottom-width: 1px;
+}

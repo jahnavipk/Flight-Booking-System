@@ -89,6 +89,7 @@ D:\CaseStudy\FlightBookingSystem\CommonDAL\bin\Debug\netcoreapp3.1\CommonDAL.pdb
 D:\CaseStudy\FlightBookingSystem\CommonDAL\bin\Debug\netcoreapp3.1\CommonDAL.Views.dll
 D:\CaseStudy\FlightBookingSystem\CommonDAL\bin\Debug\netcoreapp3.1\CommonDAL.Views.pdb
 D:\CaseStudy\FlightBookingSystem\CommonDAL\bin\Debug\netcoreapp3.1\Humanizer.dll
+D:\CaseStudy\FlightBookingSystem\CommonDAL\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\CaseStudy\FlightBookingSystem\CommonDAL\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\CaseStudy\FlightBookingSystem\CommonDAL\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 D:\CaseStudy\FlightBookingSystem\CommonDAL\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll

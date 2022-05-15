@@ -1,4 +1,5 @@
 ﻿using AdminService.Interfaces;
+using CommonDAL.Interfaces;
 using CommonDAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +21,11 @@ namespace AdminService.Controllers
     public class LoginController : ControllerBase
     {
         IPortalRepository _context;
-
-        public LoginController(IPortalRepository context)
+        private readonly IJWTManagerRepository _jWTManager;
+        public LoginController(IPortalRepository context, IJWTManagerRepository jWTManager)
         {
             _context = context;
+            _jWTManager = jWTManager;
         }
 
         [HttpPost("login")]
@@ -31,16 +33,28 @@ namespace AdminService.Controllers
         {
             try
             {
-                bool IsLoginSuccessful = _context.Login(userLogin);
+                List<string> result = _context.Login(userLogin);
 
-                if (IsLoginSuccessful)
-                {
-                    return Ok();
-                }
-                else
+                if (result.Count == 0)
                 {
                     return Unauthorized("Incorrect Email Id/ Password");
                 }
+
+                var token = _jWTManager.Authenticate(userLogin);
+
+                if (token == null)
+                {
+                    return Unauthorized();
+                }
+
+                Dictionary<string, string> lst = new Dictionary<string, string>();
+
+                lst.Add("userId", result[0].ToString());
+                lst.Add("roleId", result[1].ToString());
+                lst.Add("token", token.Token);
+                lst.Add("refreshToken", token.RefreshToken);
+
+                return Ok(lst);
             }
             catch (Exception ex)
             {

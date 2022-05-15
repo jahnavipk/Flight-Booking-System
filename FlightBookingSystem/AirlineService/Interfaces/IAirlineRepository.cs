@@ -10,6 +10,6 @@ namespace AirlineService.Interfaces
     {
         public int RegisterUser(TblUserMaster userDetails);
 
-        public int AddFlightDetails(TblFlightMaster inventoryDetails);
+        public int AddFlightDetails(TblFlightMaster[] inventoryDetails);
     }
 }

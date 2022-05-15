@@ -1,5 +1,6 @@
 ﻿using AirlineService.Interfaces;
 using CommonDAL.Models;
+using CommonDAL.Repositories;
 using MassTransit;
 using System;
 using System.Collections.Generic;
@@ -41,13 +42,22 @@ namespace AirlineService.Models
         }
 
 
-        public int AddFlightDetails(TblFlightMaster inventoryDetails)
+        public int AddFlightDetails(TblFlightMaster[] inventoryDetails)
         {
-            inventoryDetails.IsActive = "Y";
-            inventoryDetails.CreatedBy = inventoryDetails.ModifiedBy = "Admin";
+            int IsSuccess = 0;
+            foreach (var item in inventoryDetails)
+            {
+                item.IsActive = "Y";
+                item.CreatedBy = item.ModifiedBy = "Admin";
 
-            _context.TblFlightMasters.Add(inventoryDetails);
-            int IsSuccess = _context.SaveChanges();
+                _context.TblFlightMasters.Add(item);
+                IsSuccess = _context.SaveChanges();
+            }
+            //inventoryDetails.IsActive = "Y";
+            //inventoryDetails.CreatedBy = inventoryDetails.ModifiedBy = "Admin";
+
+            //_context.TblFlightMasters.Add(inventoryDetails);
+            //int IsSuccess = _context.SaveChanges();
 
             return IsSuccess;
         }

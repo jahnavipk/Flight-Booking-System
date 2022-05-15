@@ -2,6 +2,7 @@
 using AirlineService.Models;
 using Common;
 using CommonDAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,8 +23,9 @@ namespace AirlineService.Controllers
             _context = context;
         }
 
+        [Authorize]
         [HttpPost("add")]
-        public IActionResult AddFlightDetails(TblFlightMaster inventoryDetails)
+        public IActionResult AddFlightDetails(TblFlightMaster[] inventoryDetails)
         {
             try
             {

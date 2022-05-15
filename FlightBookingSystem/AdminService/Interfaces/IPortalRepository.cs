@@ -8,6 +8,6 @@ namespace AdminService.Interfaces
 {
     public interface IPortalRepository
     {
-        public bool Login(TblUserMaster userLogin);
+        public List<string> Login(TblUserMaster userLogin);
     }
 }

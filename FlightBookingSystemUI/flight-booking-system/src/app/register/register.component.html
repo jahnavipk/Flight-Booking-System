@@ -1,0 +1,63 @@
+<style>
+    .mb-0 {
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+</style>
+
+<div class="py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card rounded-0">
+                <div class="Card-header">
+                    <h3 class="mb-0">Register</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form">
+                        <div class="form-group">
+                            <label for="UserName">Name</label>
+                            <input type="email" class="form-control" [(ngModel)]="registerUserData.userName"
+                                aria-describedby="emailHelp" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputEmail">Email Id</label>
+                            <input type="email" class="form-control" [(ngModel)]="registerUserData.emailId"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="ContactNo">Contact Number</label>
+                            <input type="text" class="form-control" [(ngModel)]="registerUserData.contactNo"
+                                aria-describedby="emailHelp" placeholder="Enter Contact Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="Gender">Gender</label>                           
+                            <select class="form-select form-control" [(ngModel)]="registerUserData.gender"
+                                aria-label="Default select example" placeholder="Select Gender">                                
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                                <option value="O">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ContactNo">Age</label>
+                            <input type="text" class="form-control" [(ngModel)]="registerUserData.age"
+                                aria-describedby="emailHelp" placeholder="Enter Age">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword">Password</label>
+                            <input type="password" class="form-control" [(ngModel)]="registerUserData.password"
+                                id="InputPassword" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" [(ngModel)]="registerUserData.roleId"
+                                aria-describedby="emailHelp" value=2>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" (click)="registerUser()" class="btn btn-success">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@
 using SearchService.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,10 +19,16 @@ namespace SearchService.Models
 
         public IEnumerable<TblFlightMaster> SearchFlights(SearchDetails searchDetails)
         {
+            //string departureDate = DateTime.ParseExact(searchDetails.DepartureDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd");
+
             IEnumerable<TblFlightMaster> searchResults = _context.TblFlightMasters.ToList()
                                                         .Where(m => m.FromLocation == searchDetails.FromLocation
-                                                                 && m.ToLocation == searchDetails.ToLocation);
+                                                                 && m.ToLocation == searchDetails.ToLocation
+                                                                 && m.DepartureDateTime.ToString("yyyy-MM-dd") == searchDetails.DepartureDate
+                                                                 && m.IsActive == "Y");
 
+
+           
             return searchResults;
         }
     }

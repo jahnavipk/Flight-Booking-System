@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EXU3pMS0J/qSgt9qIxBzZmSDSZ90KR4rONy23Rz/IgxMuRnLMhbHAoW/X49EZZT3hujjrdVcqaQ3vWHTdOR5Tg==",
+  "dgSpecHash": "rsmzFzNr5tyQcD19Y9buvurI/8+qw6GGSvr8cL5U460qqfcQlQuf3zRGA4vufv+Xoo1KJIITHi9Gsqow26nuOw==",
   "success": true,
   "projectFilePath": "D:\\CaseStudy\\FlightBookingSystem\\SearchService\\SearchService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\consul\\1.6.10.4\\consul.1.6.10.4.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.24\\microsoft.aspnetcore.authentication.jwtbearer.3.1.24.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\cogdotnet04\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

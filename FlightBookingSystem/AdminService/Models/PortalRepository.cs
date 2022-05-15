@@ -18,7 +18,7 @@ namespace AdminService.Models
             _context = context;
         }
 
-        public bool Login(TblUserMaster userLogin)
+        public List<string> Login(TblUserMaster userLogin)
         {
             using (SHA512 sha512hash = SHA512.Create())
             {
@@ -32,16 +32,16 @@ namespace AdminService.Models
             IEnumerable<TblUserMaster> searchResults = _context.TblUserMasters.ToList()
                 .Where(m => m.EmailId == userLogin.EmailId && m.Password == userLogin.Password);
 
-
+            List<string> lst = new List<string>();
             //Check if the entered credentials are found in the DB
             if (searchResults.ToList().Count != 0)
             {
-                return true;
+                lst.Add(searchResults.FirstOrDefault().UserId.ToString());
+                lst.Add(searchResults.FirstOrDefault().RoleId.ToString());
+
             }
-            else
-            {
-                return false;
-            }
+
+            return lst;
         }
     }
 }

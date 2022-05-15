@@ -76,8 +76,6 @@ D:\DotNetApplications\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\C
 D:\DotNetApplications\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\CommonDAL.pdb
 D:\DotNetApplications\FlightBookingSystem\AdminService\obj\Debug\netcoreapp3.1\AdminService.MvcApplicationPartsAssemblyInfo.cs
 D:\DotNetApplications\FlightBookingSystem\AdminService\obj\Debug\netcoreapp3.1\AdminService.csproj.CopyComplete
-D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
-D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\CommonDAL.Views.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\CommonDAL.Views.pdb
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\CommonDAL.deps.json
@@ -95,6 +93,7 @@ D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\AdminServi
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\AdminService.pdb
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\Consul.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\Humanizer.dll
+D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -132,6 +131,8 @@ D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\System.Sec
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
@@ -157,4 +158,3 @@ D:\CaseStudy\FlightBookingSystem\AdminService\obj\Debug\netcoreapp3.1\AdminServi
 D:\CaseStudy\FlightBookingSystem\AdminService\obj\Debug\netcoreapp3.1\AdminService.dll
 D:\CaseStudy\FlightBookingSystem\AdminService\obj\Debug\netcoreapp3.1\AdminService.pdb
 D:\CaseStudy\FlightBookingSystem\AdminService\obj\Debug\netcoreapp3.1\AdminService.genruntimeconfig.cache
-D:\CaseStudy\FlightBookingSystem\AdminService\obj\Debug\netcoreapp3.1\AdminService.csproj.CopyComplete

@@ -36,11 +36,11 @@ namespace AirlineService.Controllers
 
                 if (IsRegisteredSuccessfully > 0)
                 {
-                    return Created("", "User registered successfully!");
+                    return Ok(new { response = "User Registered successfully" });
                 }
                 else
                 {
-                    return BadRequest("User could not be registered");
+                    return BadRequest(new { response = "User could not be registered" });
                 }
             }
             catch (Exception ex)

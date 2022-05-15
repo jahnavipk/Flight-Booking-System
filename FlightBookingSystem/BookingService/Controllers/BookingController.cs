@@ -1,6 +1,7 @@
 ﻿using BookingService.Interfaces;
 using BookingService.Models;
 using CommonDAL.Models;
+using CommonDAL.Repositories;
 using MassTransit.KafkaIntegration;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace BookingService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> BookFlight(BookingInputDetails bookingInputDetails)
+        public async Task<IActionResult> BookFlight(BookingInputDetails[] bookingInputDetails)
         {
             try
             {
@@ -41,13 +42,13 @@ namespace BookingService.Controllers
 
                 await _topicProducer.Produce(new InventoryModificationDetails
                 {
-                    FlightNo = bookingInputDetails.FlightNo,
-                    DepartureDateTime = bookingInputDetails.DepartureDateTime,
-                    NoOfSeats = bookingInputDetails.NoOfPassengers,
+                    FlightNo = bookingInputDetails.FirstOrDefault().FlightNo,
+                    DepartureDateTime = bookingInputDetails.FirstOrDefault().DepartureDateTime,
+                    NoOfSeats = bookingInputDetails.FirstOrDefault().TblPassengerDetails.Length,
                     Action = "Book"
                 });
 
-                return Ok("Flight Booked Successfully with PNR No: " + PNR);
+                return Ok(new { response = "Flight Booked Successfully with PNR No: " + PNR });
             }
             catch (Exception ex)
             {
@@ -87,7 +88,7 @@ namespace BookingService.Controllers
                                   p.StatusCode
                               }).ToList();
 
-                return Ok(new { emailId, result });
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -150,7 +151,7 @@ namespace BookingService.Controllers
         {
             try
             {
-                bool IsBookingCancelled = _context.CancelBooking(pnr);                
+                bool IsBookingCancelled = _context.CancelBooking(pnr);
 
                 //await _topicProducer.Produce(new InventoryModificationDetails
                 //{

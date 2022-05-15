@@ -8,7 +8,7 @@ namespace BookingService.Interfaces
 {
     public interface IBookFlightsRepository
     {
-        public string BookFlights(BookingInputDetails bookingInputDetails);
+        public string BookFlights(BookingInputDetails[] bookingInputDetails);
 
         public bool CancelBooking(int PNR);
     }
