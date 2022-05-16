@@ -31,7 +31,7 @@ namespace CommonDAL.Repositories
                 {
                     new Claim(ClaimTypes.Email,users.EmailId)
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(10),
+                Expires = DateTime.UtcNow.AddMinutes(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
             };
 

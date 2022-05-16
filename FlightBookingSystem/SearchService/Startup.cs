@@ -32,7 +32,11 @@ namespace SearchService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddJsonOptions(options =>
-                options.JsonSerializerOptions.Converters.Add(new StringToIntConverter()));
+            {
+                options.JsonSerializerOptions.Converters.Add(new StringToIntConverter());
+                options.JsonSerializerOptions.Converters.Add(new StringToDecimalConverter());
+                options.JsonSerializerOptions.Converters.Add(new StringToDateTimeConverter());
+            });
             services.AddConsulConfig(Configuration);
             services.AddDbContext<FlightBookingDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FlightBookingConnection")));
             services.AddSwaggerGen();
