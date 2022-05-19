@@ -8,13 +8,14 @@ import { RegisterComponent } from './register/register.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
 import { ManageInventoryComponent } from './manage-inventory/manage-inventory.component';
 import { BookFlightsComponent } from './book-flights/book-flights.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 import { AuthService } from './services/auth.service';
 import { SearchService } from './services/search.service';
 import { AuthGuard } from './services/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     SearchFlightsComponent,
     ManageInventoryComponent,
     BookFlightsComponent,
-    MyBookingsComponent
+    MyBookingsComponent,
+    CancelBookingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [SearchService, AuthService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,

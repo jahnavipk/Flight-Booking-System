@@ -42,15 +42,29 @@ namespace AirlineService.Models
         }
 
 
-        public int AddFlightDetails(TblFlightMaster[] inventoryDetails)
+        public int AddFlightDetails(FlightMaster[] inventoryDetails)
         {
             int IsSuccess = 0;
             foreach (var item in inventoryDetails)
             {
-                item.IsActive = "Y";
-                item.CreatedBy = item.ModifiedBy = "Admin";
+                TblFlightMaster tblFlightMaster = new TblFlightMaster();
 
-                _context.TblFlightMasters.Add(item);
+
+                tblFlightMaster.FlightNo = item.FlightNo;
+                tblFlightMaster.FlightName = item.FlightName;
+                tblFlightMaster.FromLocation = item.FromLocation;
+                tblFlightMaster.ToLocation = item.ToLocation;
+                tblFlightMaster.NoOfSeats = item.NoOfSeats;
+                tblFlightMaster.Price = item.Price;
+                tblFlightMaster.MealOption = item.MealOption;
+                tblFlightMaster.Remarks = item.Remarks;
+                tblFlightMaster.DepartureDateTime = Convert.ToDateTime(item.DepartureDate + "T" + item.DepartureTime);
+                tblFlightMaster.ArrivalDateTime = Convert.ToDateTime(item.ArrivalDate + "T" + item.ArrivalTime);
+
+                tblFlightMaster.IsActive = item.IsActive = "Y";
+                tblFlightMaster.CreatedBy = tblFlightMaster.ModifiedBy = item.CreatedBy = item.ModifiedBy = "Admin";
+
+                _context.TblFlightMasters.Add(tblFlightMaster);
                 IsSuccess = _context.SaveChanges();
             }
             //inventoryDetails.IsActive = "Y";
@@ -70,20 +84,17 @@ namespace AirlineService.Models
 
             TblFlightMaster flightDetails = _context.TblFlightMasters
                 .FirstOrDefault(m => m.FlightNo == context.Message.FlightNo
-                && m.DepartureDateTime == context.Message.DepartureDateTime 
+                && m.DepartureDateTime == context.Message.DepartureDateTime
                 && m.IsActive == "Y");
 
             if (context.Message.Action == "Book")
             {
-                //_context.Attach(flightDetails);
                 flightDetails.NoOfSeats = flightDetails.NoOfSeats - NoOfSeats;
-                //_context.TblFlightMasters.Add(flightDetails);
                 _context.SaveChanges();
             }
             else if (context.Message.Action == "Cancel")
             {
                 flightDetails.NoOfSeats = flightDetails.NoOfSeats + NoOfSeats;
-                _context.TblFlightMasters.Add(flightDetails);
                 _context.SaveChanges();
             }
 

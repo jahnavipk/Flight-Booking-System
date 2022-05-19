@@ -7,7 +7,7 @@
 
 <div class="py-5">
     <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-4 mx-auto">
             <div class="card rounded-0">
                 <div class="Card-header">
                     <h3 class="mb-0">Register</h3>
@@ -16,8 +16,8 @@
                     <div class="form">
                         <div class="form-group">
                             <label for="UserName">Name</label>
-                            <input type="email" class="form-control" [(ngModel)]="registerUserData.userName"
-                                aria-describedby="emailHelp" placeholder="Enter Name">
+                            <input type="text" class="form-control" [(ngModel)]="registerUserData.userName"
+                                aria-describedby="emailHelp" placeholder="Enter Name">                           
                         </div>
                         <div class="form-group">
                             <label for="InputEmail">Email Id</label>
@@ -30,9 +30,9 @@
                                 aria-describedby="emailHelp" placeholder="Enter Contact Number">
                         </div>
                         <div class="form-group">
-                            <label for="Gender">Gender</label>                           
+                            <label for="Gender">Gender</label>
                             <select class="form-select form-control" [(ngModel)]="registerUserData.gender"
-                                aria-label="Default select example" placeholder="Select Gender">                                
+                                aria-label="Default select example" placeholder="Select Gender">
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
                                 <option value="O">Other</option>

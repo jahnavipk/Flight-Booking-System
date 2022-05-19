@@ -38,7 +38,9 @@ namespace AdminService.Models
             {
                 lst.Add(searchResults.FirstOrDefault().UserId.ToString());
                 lst.Add(searchResults.FirstOrDefault().RoleId.ToString());
-
+                lst.Add(searchResults.FirstOrDefault().EmailId.ToString());
+                lst.Add(searchResults.FirstOrDefault().UserName.ToString());
+                lst.Add(searchResults.FirstOrDefault().ContactNo.ToString());
             }
 
             return lst;

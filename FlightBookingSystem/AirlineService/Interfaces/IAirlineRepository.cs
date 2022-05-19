@@ -1,4 +1,5 @@
-﻿using CommonDAL.Models;
+﻿using AirlineService.Models;
+using CommonDAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace AirlineService.Interfaces
     {
         public int RegisterUser(TblUserMaster userDetails);
 
-        public int AddFlightDetails(TblFlightMaster[] inventoryDetails);
+        public int AddFlightDetails(FlightMaster[] inventoryDetails);
     }
 }

@@ -24,7 +24,7 @@ namespace BookingService.Models
             //Insert data into tblBookingDetails table
             TblBookingDetail bookingDetail = new TblBookingDetail();
 
-            foreach(var itemBookingInputDetails in bookingInputDetails)
+            foreach (var itemBookingInputDetails in bookingInputDetails)
             {
                 bookingDetail.UserId = itemBookingInputDetails.UserId;
                 bookingDetail.FlightNo = itemBookingInputDetails.FlightNo;
@@ -53,53 +53,29 @@ namespace BookingService.Models
             return bookingDetail.Pnr.ToString();
         }
 
-        //public string BookFlights(BookingInputDetails bookingInputDetails)
-        //{
-        //    //Insert data into tblBookingDetails table
-        //    TblBookingDetail bookingDetail = new TblBookingDetail();
-
-        //    bookingDetail.UserId = bookingInputDetails.UserId;
-        //    bookingDetail.FlightNo = bookingInputDetails.FlightNo;
-        //    bookingDetail.NoOfPassengers = bookingInputDetails.NoOfPassengers;
-        //    bookingDetail.DepartureDateTime = bookingInputDetails.DepartureDateTime;
-        //    bookingDetail.IsOneWay = bookingInputDetails.IsOneWay;
-        //    bookingDetail.ReturnDateTime = bookingInputDetails.ReturnDateTime;
-        //    bookingDetail.StatusCode = 1;
-        //    bookingDetail.CreatedBy = bookingDetail.ModifiedBy = bookingInputDetails.UserId.ToString();
-
-        //    _context.TblBookingDetails.Add(bookingDetail);
-        //    _context.SaveChanges();
-
-        //    //Insert data into tblPassengerDetails table (Includes passenger wise details)
-        //    foreach (var item in bookingInputDetails.TblPassengerDetails)
-        //    {
-        //        item.Pnr = bookingDetail.Pnr;
-        //        item.StatusCode = 1;
-        //        item.CreatedBy = item.ModifiedBy = bookingInputDetails.UserId.ToString();
-
-        //        _context.TblPassengerDetails.Add(item);
-        //        _context.SaveChanges();
-        //    }
-
-        //    return bookingDetail.Pnr.ToString();
-        //}
-
-        public bool CancelBooking(int pnr)
+        public TblBookingDetail CancelBooking(int pnr)
         {
-            var resultBookingDetails = _context.TblBookingDetails.Where(m => m.Pnr == pnr);            
-            _context.TblBookingDetails.Remove((TblBookingDetail)resultBookingDetails);
+            TblBookingDetail resultBookingDetailsRet = new TblBookingDetail();
+            var resultBookingDetails = _context.TblBookingDetails.Where(m => m.Pnr == pnr).ToList();
+            var resultUserBookingDetailsNew = _context.TblPassengerDetails.Where(m => m.Pnr == pnr).ToList();
 
-            var resultUserBookingDetails = _context.TblPassengerDetails.Where(m => m.Pnr == pnr);
-            _context.TblPassengerDetails.Remove((TblPassengerDetail)resultUserBookingDetails);
-
-            if (resultBookingDetails.ToList().Count == 0 || resultUserBookingDetails.ToList().Count == 0)
+            if (resultBookingDetails.Count == 0 || resultBookingDetails.Count == 0)
             {
-                return false;
+                return null;
             }
             else
             {
+                foreach (var item in resultBookingDetails)
+                {
+                    resultBookingDetailsRet = item;
+                    _context.TblBookingDetails.Remove(item);
+                }
+                foreach (var item in resultUserBookingDetailsNew)
+                {
+                    _context.TblPassengerDetails.Remove(item);
+                }
                 _context.SaveChanges();
-                return true;
+                return resultBookingDetailsRet;
             }
         }
     }

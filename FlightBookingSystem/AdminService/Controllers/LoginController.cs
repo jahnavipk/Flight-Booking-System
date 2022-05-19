@@ -51,6 +51,9 @@ namespace AdminService.Controllers
 
                 lst.Add("userId", result[0].ToString());
                 lst.Add("roleId", result[1].ToString());
+                lst.Add("userEmailId", result[2].ToString());
+                lst.Add("userName", result[3].ToString());
+                lst.Add("userContactNO", result[4].ToString());
                 lst.Add("token", token.Token);
                 lst.Add("refreshToken", token.RefreshToken);
 

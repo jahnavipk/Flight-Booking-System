@@ -16,6 +16,8 @@ export class RegisterComponent {
   ngOnInit(): void {
   }
 
+ 
+
   registerUser() {
     debugger;    
     this._auth.registerUser(this.registerUserData).subscribe(res => {

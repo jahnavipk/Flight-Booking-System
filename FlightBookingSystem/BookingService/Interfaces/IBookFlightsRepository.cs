@@ -1,4 +1,5 @@
 ﻿using BookingService.Models;
+using CommonDAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace BookingService.Interfaces
     {
         public string BookFlights(BookingInputDetails[] bookingInputDetails);
 
-        public bool CancelBooking(int PNR);
+        public TblBookingDetail CancelBooking(int PNR);
     }
 }

@@ -32,6 +32,9 @@ export class AuthService {
         localStorage.removeItem('token')
         localStorage.removeItem('userId')
         localStorage.removeItem('roleId')
+        localStorage.removeItem('userEmailId')
+        localStorage.removeItem('userName')
+        localStorage.removeItem('userContact')
         this._router.navigate(['/search'])
     }
 

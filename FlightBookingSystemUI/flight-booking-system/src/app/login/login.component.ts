@@ -15,16 +15,30 @@ export class LoginComponent {
 
   constructor(private _auth: AuthService, private _router: Router) { }
 
+
   loginUser() {
-    debugger;
+    
     this._auth.loginUser(this.loginUserData).subscribe(res => {
       localStorage.setItem('userId', res.userId)
       localStorage.setItem('roleId', res.roleId)
       localStorage.setItem('token', res.token)
-      if (localStorage.getItem('roleId') == "2")
-        this._router.navigate(['/my-bookings'])
-      else if (localStorage.getItem('roleId') == "1")
-        this._router.navigate(['/inventory'])
+      localStorage.setItem('userEmailId', res.userEmailId)
+      localStorage.setItem('userName', res.userName)
+      localStorage.setItem('userContact', res.userContactNO)
+
+      const redirectedFromSearch = localStorage.getItem('redirectedFromSearch');
+
+      if (redirectedFromSearch == 'true') {
+
+        this._router.navigate(['/bookflight'])
+      }
+      else {
+
+        if (localStorage.getItem('roleId') == "2")
+          this._router.navigate(['/search'])
+        else if (localStorage.getItem('roleId') == "1")
+          this._router.navigate(['/inventory'])
+      }
     },
       err => console.log(err)
     )

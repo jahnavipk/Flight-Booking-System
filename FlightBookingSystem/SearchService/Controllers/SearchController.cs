@@ -39,7 +39,7 @@ namespace SearchService.Controllers
                 }
                 else
                 {
-                    return NotFound("No data found");
+                    return NotFound(new { Response = "No data found" });
                 }
             }
             catch (Exception ex)

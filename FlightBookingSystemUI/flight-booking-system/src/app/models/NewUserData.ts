@@ -1,3 +1,5 @@
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+
 export class NewUserData {
     userName: string = '';
     emailId: string = '';
@@ -6,4 +8,5 @@ export class NewUserData {
     gender: string = '';
     age: number = 0;
     roleId: number = 2;
+
 }

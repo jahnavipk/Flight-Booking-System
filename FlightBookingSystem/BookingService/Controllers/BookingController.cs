@@ -48,7 +48,7 @@ namespace BookingService.Controllers
                     Action = "Book"
                 });
 
-                return Ok(new { response = "Flight Booked Successfully with PNR No: " + PNR });
+                return Ok(new { Response = "Flight Booked Successfully with PNR No: " + PNR });
             }
             catch (Exception ex)
             {
@@ -64,7 +64,10 @@ namespace BookingService.Controllers
             {
                 IEnumerable<TblUserMaster> userMaster = _dbContext.TblUserMasters.ToList().Where(m => m.EmailId == emailId);
                 IEnumerable<TblBookingDetail> bookingDetails = _dbContext.TblBookingDetails.ToList().Where(m => m.UserId == userMaster.FirstOrDefault().UserId);
-                IEnumerable<TblPassengerDetail> userBookingDetails = _dbContext.TblPassengerDetails.ToList().Where(m => m.Pnr == bookingDetails.FirstOrDefault().Pnr);
+                //IEnumerable<TblPassengerDetail> userBookingDetails = _dbContext.TblPassengerDetails.ToList().Where(m => m.Pnr == bookingDetails.FirstOrDefault().Pnr) ;
+
+                IEnumerable<TblPassengerDetail> userBookingDetails = _dbContext.TblPassengerDetails.ToList();
+
 
                 var result = (from p in userBookingDetails
                               join t in bookingDetails on p.Pnr equals t.Pnr
@@ -134,37 +137,37 @@ namespace BookingService.Controllers
                     return Ok(result);
                 }
 
-                return NotFound("No records found with the entered PNR number. Please enter the correct PNR number.");
+                return NotFound(new { Response = "No records found with the entered PNR number. Please enter the correct PNR number." });
             }
             catch (Exception ex)
             {
                 return BadRequest(new
                 {
-                    Response = "Error",
+                    Response = "Sorry! We are unable to process your request.Please try again after some time.",
                     ResponseMessage = ex.Message
                 });
             }
         }
 
         [HttpDelete("cancel/{pnr}")]
-        public IActionResult CancelBooking(int pnr)
+        public async Task<IActionResult> CancelBooking(int pnr)
         {
             try
             {
-                bool IsBookingCancelled = _context.CancelBooking(pnr);
+                TblBookingDetail result = new TblBookingDetail();
+                result = _context.CancelBooking(pnr);
 
-                //await _topicProducer.Produce(new InventoryModificationDetails
-                //{
-                //    FlightNo = _FlightNo,
-                //    DepartureDateTime = _DepartureDateTime,
-                //    NoOfSeats = _NoOfSeats,
-                //    Action = "Cancel"
-                //});
-
-                if (IsBookingCancelled)
+                if (result != null)
                 {
-                    var message = "Booking for PNR No: " + pnr + " is cancelled successfully";
-                    return Accepted(message);
+                    await _topicProducer.Produce(new InventoryModificationDetails
+                    {
+                        FlightNo = result.FlightNo,
+                        DepartureDateTime = result.DepartureDateTime,
+                        NoOfSeats = result.NoOfPassengers,
+                        Action = "Cancel"
+                    });
+
+                    return Ok(new { Response = "Booking for PNR No: " + pnr + " is cancelled successfully" });
                 }
                 else
                 {
@@ -175,7 +178,7 @@ namespace BookingService.Controllers
             {
                 return BadRequest(new
                 {
-                    Response = "Error",
+                    Response = "Sorry! We are unable to process your request. Please try again after some time.",
                     ResponseMessage = ex.Message
                 });
             }

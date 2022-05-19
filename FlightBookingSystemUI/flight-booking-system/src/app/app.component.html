@@ -7,13 +7,23 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/search">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/search">Search Flights <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="adminLoggedIn(true)" routerLink="/inventory">Manage Inventory</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" *ngIf="userLoggedIn(true)" routerLink="/my-bookings">My Bookings</a>
+      </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" *ngIf="userLoggedIn(true)">
+          My Bookings
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/my-bookings">My bookings</a>
+          <a class="dropdown-item" routerLink="/cancel-booking">Cancel a booking</a>
+        </div>
       </li>
     </ul>
     <span class="navbar-text">
@@ -21,7 +31,10 @@
     </span>
     <span class="navbar-text">
       <a class="nav-link" style="cursor:pointer" *ngIf="LoggedIn(false)" routerLink="/register">Register</a>
-    </span>    
+    </span>
+    <span class="navbar-text">
+      <strong style="color: #fff;" *ngIf="LoggedIn(true)">{{UserName}}</strong>
+    </span>
     <span class="navbar-text">
       <a class="nav-link" style="cursor:pointer" *ngIf="LoggedIn(true)" (click)="LogOut()">Logout</a>
     </span>
@@ -29,7 +42,13 @@
 </nav>
 
 <div>
-  <div class="container">
+  <div class="container" style="min-height:calc(100vh - 117px)">
     <router-outlet></router-outlet>
   </div>
+</div>
+
+<div class="footer">
+  <footer  style="background-color: #000; border-top: 1px solid #000; color:#fff; padding: 2px; ">
+    <p style="text-align: center; margin-top: 0.5rem;">© 2022 Flight Booking System All rights reserved</p>
+  </footer>
 </div>

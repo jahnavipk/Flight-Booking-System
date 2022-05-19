@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FlightBookingDetails, FlightDetails, PassengerDetails } from '../models/FlightDetails';
+import { PassengerDetails } from '../models/BookingModel';
+import { FlightDetails } from '../models/FlightDetails';
 import { SearchService } from '../services/search.service';
 
 @Component({
@@ -23,6 +24,8 @@ export class BookFlightsComponent {
 
   ngOnInit(): void {
     debugger;
+
+    localStorage.setItem('redirectedFromSearch','false');
 
     this._search.obj.subscribe(data => {
       this.userFlightData = data;
@@ -49,7 +52,7 @@ export class BookFlightsComponent {
 
   bookFlight() {
     console.log(this.passengerArray);
-    this.userBookingData = { userId: localStorage.getItem('userId'), flightNo: this.userFlightData.flightNo, noOfPassengers: this.passengerArray.length, departureDateTime: this.userFlightData.departureDateTime, isOneWay: "", returnDateTime: "2022-05-29T00:00:00", tblPassengerDetails: this.passengerArray }
+    this.userBookingData = { userId: localStorage.getItem('userId'), flightNo: this.userFlightData.flightNo, noOfPassengers: this.passengerArray.length, departureDateTime: this.userFlightData.departureDateTime, isOneWay: "N", returnDateTime: "29-05-2022 14:30:00", tblPassengerDetails: this.passengerArray }
     this.userBookingDetailsArray.push(this.userBookingData);
     console.log(this.userBookingDetailsArray);
     this.httpc.post("http://localhost:48531/api/flight/booking", this.userBookingDetailsArray).subscribe(res => { this.Success(res) }, res => this.Error);
@@ -57,9 +60,10 @@ export class BookFlightsComponent {
 
   Error(res: any) {
     console.log(res);
+    alert(res.Response);
   }
   Success(res: any) {
     console.log(res.response);
-    alert(res.response);
+    alert(res.Response);
   }
 }

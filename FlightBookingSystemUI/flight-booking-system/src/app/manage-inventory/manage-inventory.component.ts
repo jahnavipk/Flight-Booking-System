@@ -12,17 +12,17 @@ export class ManageInventoryComponent implements OnInit {
 
   flightData: FlightInventoryDetails = new FlightInventoryDetails();
   flightDataArray: Array<FlightInventoryDetails> = new Array<FlightInventoryDetails>();
-
+  
   constructor(public httpc: HttpClient, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.flightData = { flightNo: "", flightName: "", fromLocation: "", toLocation: "", departureDateTime: "", arrivalDateTime: "", price: 0, noOfSeats: 0, mealOption: "Y", remarks: "" };
+    this.flightData = { flightNo: "", flightName: "", fromLocation: "", toLocation: "", departureDate: "", departureTime: "", arrivalDate: "", arrivalTime: "", price: 0, noOfSeats: 0, mealOption: "Y", remarks: "" };
     this.flightDataArray.push(this.flightData);
   }
 
   addRow(index: any) {
-    this.flightData = { flightNo: "", flightName: "", fromLocation: "", toLocation: "", departureDateTime: "", arrivalDateTime: "", price: 0, noOfSeats: 0, mealOption: "Y", remarks: "" };
+    this.flightData = { flightNo: "", flightName: "", fromLocation: "", toLocation: "", departureDate: "", departureTime: "", arrivalDate: "", arrivalTime: "", price: 0, noOfSeats: 0, mealOption: "Y", remarks: "" };
     this.flightDataArray.push(this.flightData);
     console.log(this.flightDataArray);
     return true;

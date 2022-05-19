@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'flight-booking-system';
+  UserName = localStorage.getItem('userName');
 
   /**
    *

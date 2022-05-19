@@ -13,7 +13,7 @@ namespace BookingService.Models
         public int NoOfPassengers { get; set; }
         public DateTime DepartureDateTime { get; set; }
         public string IsOneWay { get; set; }
-        public DateTime? ReturnDateTime { get; set; }        
+        public Nullable<DateTime> ReturnDateTime { get; set; }        
         public TblPassengerDetail[] TblPassengerDetails { get; set; }
     }
 }

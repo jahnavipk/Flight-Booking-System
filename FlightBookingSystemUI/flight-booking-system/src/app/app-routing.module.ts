@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookFlightsComponent } from './book-flights/book-flights.component';
+import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
 import { LoginComponent } from './login/login.component';
 import { ManageInventoryComponent } from './manage-inventory/manage-inventory.component';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
@@ -33,6 +34,11 @@ const routes: Routes = [
     canActivate:[AuthGuard],
     component: MyBookingsComponent
   },  
+  {
+    path: 'cancel-booking',
+    canActivate:[AuthGuard],
+    component: CancelBookingComponent
+  }, 
   {
     path: 'login',
     component: LoginComponent

@@ -25,7 +25,7 @@ namespace AirlineService.Controllers
 
         [Authorize]
         [HttpPost("add")]
-        public IActionResult AddFlightDetails(TblFlightMaster[] inventoryDetails)
+        public IActionResult AddFlightDetails(FlightMaster[] inventoryDetails)
         {
             try
             {
