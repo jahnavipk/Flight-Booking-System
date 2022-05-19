@@ -33,7 +33,7 @@ namespace AirlineService.Controllers
 
                 if (isFlightAddedSuccessfully > 0)
                 {
-                    return Ok("Flight details added successfully");
+                    return Ok(new { Response = "Flight details added successfully" });
                 }
                 else
                 {

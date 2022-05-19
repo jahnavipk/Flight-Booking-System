@@ -44,11 +44,12 @@ export class ManageInventoryComponent implements OnInit {
 
   Error(res: any) {
     console.log(res);
+    alert(res.Response);
+
   }
-  Success(res: any) {
-    console.log(res);
+  Success(res: any) {    
     this.flightDataArray = res;
-    console.log(this.flightDataArray);
+    alert(res.Response);
   }
 
 }
